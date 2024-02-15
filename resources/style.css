@@ -21,13 +21,56 @@ header {
     text-align: center;
 }
 
-.menu-button {
+#menu-button {
     position: fixed;
     top: 8px;
     right: 8px;
     background-color: #5780ff;
-    width: 10%;
+    z-index: 21;
+    width: 5%;
     height: 10%;
+    border: none;
+    margin: 0 10px 0 10px;
+}
+
+.menu-bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    left: 0;
+    background: white;
+    transition: top 0.24s, transform 0.24s, opacity 0.24s;
+}
+
+.menu-bar:nth-child(1) {
+    top: 20%;
+}
+
+.menu-bar:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-bar:nth-child(3) {
+    top: 80%;
+    transform: translateY(-80%);
+}
+
+.menu-bar.open:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(135deg);
+}
+
+.menu-bar.open:nth-child(2) {
+    transform: translate(50%, -50%);
+    opacity: 0;
+}
+
+.menu-bar.open:nth-child(3) {
+    top: 50%;
+    transform: translateY(-50%) rotate(-135deg);
 }
 
 #menu {
@@ -35,10 +78,11 @@ header {
     right: 0;
     top: 8px;
     background-color: white;
-    z-index: 100;
+    z-index: 20;
     width: 40%;
     height: 100vh;
     transform: translateX(100%);
+    transition: top 0.24s, transform 0.24s, opacity 0.24s;
 }
 
 #menu.open {
@@ -50,6 +94,7 @@ nav h2 {
     background-color: #5780ff;
     margin: 0;
     font-size: 50px;
+    height: 10%;
 }
 
 nav ul {
